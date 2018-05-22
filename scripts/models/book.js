@@ -30,12 +30,24 @@ var app = app || {};
     Book.all = rows.sort((a, b) => b.title - a.title).map(books => new Book(books));
   }
 
-  Book.fetchAll = callback =>
-    $.get(`${app.ENVIRONMENT.apiUrl}/tasks`)
-      .then((data => Book.loadAll(data))
-      .then(Book.loadAll)
-      .then(callback)
+  Book.fetchAll = callback => {
+    $.get('/api/v1/books')
+      .then(results => {
+        Book.loadAll(results);
+        callback();
+        
+      })
       .catch(errorCallback);
 
-  module.Book = book;
+  };
+
+  // Book.fetchAll = callback => {
+  //   debugger
+  //   $.get(`${app.ENVIRONMENT.apiUrl}/books`)
+  //   .then((data => Book.loadAll(data)))
+  //   // .then(Book.loadAll)
+  //   .then(callback())
+  //   .catch(errorCallback)};
+
+  module.Book = Book;
 })(app)
