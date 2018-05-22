@@ -15,7 +15,7 @@ var app = app || {};
 
   module.showOnly = (selector) => {
     $('.container').hide();
-    $(selector).show();
+    $('#container').show();
   };
 
   module.render = (templateId, data) => {
