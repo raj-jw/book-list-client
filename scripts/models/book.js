@@ -9,25 +9,33 @@ var app = app || {};
   }
 
   function Book(bookObject) {
-    Object.keys(bookObject).forEach(key => this[key] = taskObject[key]);
+    //this.author = bookObject.author;
+    //this.title = bookObject.title;
+    //this.isbn10 = bookObject.isbn_10;
+    //this.isbn13 = bookObject.isbn_13;
+   // this.imageUrl = bookObject.image-url;
+   // this.description = bookObject.description;
+    Book.keys(bookObject).forEach(key => this[key]= bookObject[key]);
   }
 
-  Task.prototype.toHtml = function() {
-    return app.render('task-template', this);
+  Book.prototype.toHtml = function() {
+    let template = Handlebars.compile($('#book-list-template').text());
+    return app.render('.container', this);
+    
   }
 
-  Task.all = [];
+  Book.all = [];
 
-  Task.loadAll = rows => {
-    Task.all = rows.sort((a, b) => b.title - a.title).map(task => new Task(task));
+  Book.loadAll = rows => {
+    Book.all = rows.sort((a, b) => b.title - a.title).map(books => new Book(books));
   }
 
-  Task.fetchAll = callback =>
+  Book.fetchAll = callback =>
     $.get(`${app.ENVIRONMENT.apiUrl}/tasks`)
-      .then((data => Task.loadAll(data))
-      .then(Task.loadAll)
+      .then((data => Book.loadAll(data))
+      .then(Book.loadAll)
       .then(callback)
       .catch(errorCallback);
 
-  module.Task = Task;
+  module.Book = book;
 })(app)
