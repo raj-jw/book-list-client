@@ -9,13 +9,13 @@ var app = app || {};
   }
 
   function Book(bookObject) {
-    //this.author = bookObject.author;
-    //this.title = bookObject.title;
-    //this.isbn10 = bookObject.isbn_10;
-    //this.isbn13 = bookObject.isbn_13;
-   // this.imageUrl = bookObject.image-url;
-   // this.description = bookObject.description;
-    Book.keys(bookObject).forEach(key => this[key]= bookObject[key]);
+    this.author = bookObject.author;
+    this.title = bookObject.title;
+    this.isbn10 = bookObject.isbn_10;
+    this.isbn13 = bookObject.isbn_13;
+   this.imageUrl = bookObject.image_url;
+   this.description = bookObject.description;
+    // Book.keys(bookObject).forEach(key => this[key]= bookObject[key]);
   }
 
   Book.prototype.toHtml = function() {
@@ -31,8 +31,9 @@ var app = app || {};
   }
 
   Book.fetchAll = callback => {
-    $.get('/api/v1/books')
+    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books`)
       .then(results => {
+        console.log(results);
         Book.loadAll(results);
         callback();
         

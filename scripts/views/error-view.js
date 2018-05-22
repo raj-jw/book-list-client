@@ -11,6 +11,6 @@ var app = app || {};
     $('#error-message').append(app.render('error-template',err));
   };
   let template = Handlebars.compile($('#error-template').text());
-    return app.render('#error-message', this);
+    return template(this);
   module.errorView = errorView;
 })(app)
