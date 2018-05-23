@@ -42,6 +42,12 @@ var app = app || {};
 
   };
 
+  Book.fetchOne = (ctx) => {
+    console.log(ctx);
+    $('.book-items').hide();
+    $(`.book-items[data-bookid="${ctx.params.book_id}"]`).show();
+  };
+
   // Book.fetchAll = callback => {
   //   debugger
   //   $.get(`${app.ENVIRONMENT.apiUrl}/books`)

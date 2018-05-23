@@ -18,7 +18,7 @@
    <p>{{status}}:{{statusText}}</p>
   </script>
   <script id="book-list-template" type="text/x-handlebars-template">
-    <li class = "book-items" data-bookid={{book_id}}>
+    <li class="book-items" data-bookid={{book_id}}>
       <div class="book-container">
         <img src="{{imageUrl}}">
         <div class="book-overlay">
@@ -26,17 +26,18 @@
           <p>Author: <i>{{author}}</i></p>
         </div>
       </div>
-            </li>
-            </script>
-    </section>
+    </li>
+  </script>
+    <!-- </section> -->
 </head>
+
 <body>
-<header>
-  <div class="header-content">
+  <header>
+    <div class="header-content">
       <h1>Book App</h1>
 
-  </div>
-</header>
+    </div>
+  </header>
   <div >
   
     <section class="error-view container" id="error-message">
@@ -52,6 +53,7 @@
   
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
     <!-- <script src="vendor/scripts/highlight.pack.js"></script> -->
