@@ -5,9 +5,10 @@ var app = app || {};
   const bookView = {};
   
   bookView.initIndexPage = () => {
-    app.Book.all.forEach(a => $('#container').append(a.toHtml()))};
-  $(document).ready(app.Book.fetchAll(bookView.initIndexPage));
+    app.showOnly('.book-view');
+    app.Book.all.forEach(a => $('#book-list').append(a.toHtml()))};
+ 
 
   module.bookView=bookView;
 
-})(app)
+})(app);
