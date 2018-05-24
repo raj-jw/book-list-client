@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/styles/normalize.css">
-    <link rel="stylesheet" href="vendor/styles/icons.css">
+    <link rel="stylesheet" href="styles/icons.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
-    <link rel="stylesheet" href="vendor/styles/railscasts.css">
+    <!-- <link rel="stylesheet" href="vendor/styles/railscasts.css"> -->
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
   <title>Document</title>
   <script id="error-template" type="text/x-handlebars-template">
@@ -24,6 +24,7 @@
         <div class="book-overlay">
           <h3>Title: {{title}}</h3>
           <p>Author: <i>{{author}}</i></p>
+          <a href="/books/{{}book_id}">View Details</a>
         </div>
       </div>
     </li>
@@ -49,6 +50,10 @@
         <ul id="book-list"></ul>
       </p>
    </section>
+   <section class="book-view container" id="selected-book">
+     The selected individual book should show up here.
+   </section>
+
   </div>
   
 
@@ -58,10 +63,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
     <!-- <script src="vendor/scripts/highlight.pack.js"></script> -->
     <script src="scripts/index.js"></script>
-    <script src="scripts/models/book.js"></script>
     <script src="scripts/views/book-view.js"></script>
     <script src="scripts/views/error-view.js"></script>
-    <script src="scripts/models/api-env.js"></script>
-    <script>app.Book.fetchAll(app.bookView.initIndexPage)</script>
+    <script src="scripts/models/book.js"></script>
+    <script src="scripts/models/routes.js"></script>
+    <!-- <script>app.Book.fetchAll(app.bookView.initIndexPage)</script> -->
 </body>
 </html>
