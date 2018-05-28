@@ -10,7 +10,6 @@ var app = app || {};
     $('#error-message').empty();
     $('#error-message').append(app.render('error-template',err));
   };
-  // let template = Handlebars.compile($('#error-template').text());
-  //   return template(this);
+ 
   module.errorView = errorView;
 })(app)

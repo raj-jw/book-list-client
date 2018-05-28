@@ -2,17 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/styles/normalize.css">
-    <link rel="stylesheet" href="vendor/styles/icons.css">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/icons.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
-    <link rel="stylesheet" href="vendor/styles/railscasts.css">
-    <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
-  <title>Document</title>
+  <title>Book App</title>
   <script id="error-template" type="text/x-handlebars-template">
     <h3>Oops,something went wrong!</h3>
    <p>{{status}}:{{statusText}}</p>
@@ -22,13 +18,25 @@
       <div class="book-container">
         <img src="{{imageUrl}}">
         <div class="book-overlay">
-          <h3>Title: {{title}}</h3>
-          <p>Author: <i>{{author}}</i></p>
+          <h3> {{title}}</h3>
+          <p>{{author}}</p>
+        <p class="detail-button"  <a href="/books/{{book_id}}">View Details</a></p>
         </div>
       </div>
     </li>
   </script>
-    <!-- </section> -->
+  <script id="book-deatil-template" type="text/x-handlebars-template">
+    <div class="book-container">
+      <h3>{{title}}</h3>
+      <div class="book-detail">
+        <p>{{author}}</p>
+        <p>{{isbn}}</p>
+      </div>
+      <img src="{{imageUrl}}">
+      <p>{{description}}</p>
+    </div>
+    </script>
+    
 </head>
 
 <body>
@@ -38,20 +46,35 @@
 
     </div>
   </header>
-  <div >
+
   
     <section class="error-view container" id="error-message">
         <h2 class="view-title">There is a problem!</h2>
     </section>
    <section class="book-view container">
       <h2 class="view-title"><u>My Books</u></h2>
-      <p class="book-list">
+      <section class="book-list">
         <ul id="book-list"></ul>
-      </p>
+      </section>
    </section>
-  </div>
-  
 
+
+  <section class="detail-view container">
+  <section id="books-detail"></section>
+  </section>
+  
+<section class="create-view container">
+  <h2 class="view-title">Add a new book</h2>
+  <form id="create-form">
+    <input type="text" name="title" placeholder="title">
+    <input type="text" name="author" placeholder="author">
+    <input type="text" name="isbn_10" placeholder="isbn_10">
+    <input type="text" name="isbn_13" placeholder="isbn_13">
+    <input type="text" name="image_url" placeholder="image_url">
+    <textarea name="description" placeholder="description" cols="30" rows="5"></textarea>
+    <button type="submit">submit</button>
+  </form>
+</section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
@@ -62,6 +85,7 @@
     <script src="scripts/views/book-view.js"></script>
     <script src="scripts/views/error-view.js"></script>
     <script src="scripts/models/api-env.js"></script>
-    <script>app.Book.fetchAll(app.bookView.initIndexPage)</script>
+    <script src="scripts/views/routes.js"></script>
+    <!-- <script>app.Book.fetchAll(app.bookView.initIndexPage)</script> -->
 </body>
 </html>
