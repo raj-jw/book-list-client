@@ -24,11 +24,26 @@
         <div class="book-overlay">
           <h3>Title: {{title}}</h3>
           <p>Author: <i>{{author}}</i></p>
-          <a href="/books/{{book_id}}">View Details</a>
+          <a id="one-book" href="/books/{{book_id}}">View Details</a>
         </div>
       </div>
     </li>
   </script>
+
+  <script id="book-detail-template" type="text/x-handlebars-template">
+    <div class="book-container">
+      <h3>Title: {{title}}</h3>
+      <section class="book-details">
+        <p>Author: {{author}}</p>
+        <p>ISBN 13: {{isbn_13}}</p>
+        <p>ISBN 10: {{isbn_10}}</p>
+
+      </section>
+      <img src={{imageUrl}}>
+      <p>{{description}}</p>
+    </div>
+  </script>
+
     <!-- </section> -->
 </head>
 
@@ -50,7 +65,7 @@
         <ul id="book-list"></ul>
       </p>
    </section>
-   <section class="book-view container" id="selected-book">
+   <section class="single-book-view container" id="selected-book">
      The selected individual book should show up here.
    </section>
 

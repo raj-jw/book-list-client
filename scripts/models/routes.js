@@ -12,7 +12,7 @@ page('/'
 // );
 
 
-page('/books/:book_id', (ctx, next) => app.Book.fetchOne(ctx, () => app.bookView.initDetailPage(ctx, next)));
+page('/api/v1/books/:book_id', (ctx, next) => app.Book.fetchOne(ctx, () => app.bookView.initDetailPage(ctx, next)));
 // page('books/new' app.bookView.initAddBook(ctx))
 
 //from solution code:

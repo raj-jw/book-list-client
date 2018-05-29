@@ -19,8 +19,8 @@ var app = app || {};
   };
 
   module.render = (templateId, data) => {
-    console.log('templateID', templateId);
-    console.log('datadata', data);
+    // console.log('templateID', templateId);
+    // console.log('datadata', data);
     let template = Handlebars.compile($(`#${templateId}`).text());
     console.log('template filled',template(data))
     return template(data);

@@ -13,8 +13,8 @@ var app = app || {};
     this.title = bookObject.title;
     this.isbn10 = bookObject.isbn_10;
     this.isbn13 = bookObject.isbn_13;
-   this.imageUrl = bookObject.image_url;
-   this.description = bookObject.description;
+    this.imageUrl = bookObject.image_url;
+    this.description = bookObject.description;
     // Book.keys(bookObject).forEach(key => this[key]= bookObject[key]);
   }
 

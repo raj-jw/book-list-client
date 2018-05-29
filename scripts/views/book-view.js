@@ -11,15 +11,6 @@ var app = app || {};
     next();
   }
 
-  // previous attempt:
-  // bookView.initIndexPage = () => {
-  //   app.showOnly('.book-view');
-  //   app.Book.all.forEach(a => $('#book-list').append(a.toHtml()))};
-
-  // bookView.initAddBook = function() {
-  //   app.showOnly('.add-view');
-  // }
-
   bookView.initCreateFormPage = function() {
     app.showOnly('.create-view');
     $('#add-form').on('submit', function(event) {
@@ -36,6 +27,24 @@ var app = app || {};
       module.Book.create(book);
     })
   }
+
+  bookView.initDetailPage = function(ctx, next) {
+    $('.book-detail').empty();
+    app.showOnly('.detail-view');
+    
+    $('.single-book-view').append(app.render('book-detail-template', ctx.book));
+
+    $('#one-book').on('click', function() {
+      page(`/books/${$(this).data('id')}/update`);
+    });
+
+    next();
+  }
+
+  // bookView.initDetailPage = function() {
+
+
+  // }
  
 
   module.bookView = bookView;
