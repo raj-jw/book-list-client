@@ -19,7 +19,10 @@ var app = app || {};
   };
 
   module.render = (templateId, data) => {
-    let template = Handlebars.compile($(`#book-template`).text());
+    // console.log('templateID', templateId);
+    // console.log('datadata', data);
+    let template = Handlebars.compile($(`#${templateId}`).text());
+    console.log('template filled',template(data))
     return template(data);
   };
 })(app);

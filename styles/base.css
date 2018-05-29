@@ -1,0 +1,36 @@
+* {
+  font-family: Helvetica, sans-serif;
+  /* line-height: 1.3em; */
+}
+
+header {
+  background-color: black;
+  color: white;
+  font-size: 1em;
+  vertical-align: top;
+  height: 75px;
+}
+
+header div {
+margin-top: 10px;
+}
+
+header div h1{
+  margin-left: 10%;
+  margin-top: 0;
+  
+}
+
+h2 {
+margin-left: 3%;
+
+}
+
+div.book-container {
+  border: 5px black solid;
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+}

@@ -4,7 +4,7 @@ var app = app || {};
 
 (function(module) {
   function errorCallback(err) {
-    console.error(err);
+    console.error('this is the error we care about',err);
     module.errorView.initErrorPage(err);
   }
 
@@ -13,14 +13,14 @@ var app = app || {};
     this.title = bookObject.title;
     this.isbn10 = bookObject.isbn_10;
     this.isbn13 = bookObject.isbn_13;
-   this.imageUrl = bookObject.image_url;
-   this.description = bookObject.description;
+    this.imageUrl = bookObject.image_url;
+    this.description = bookObject.description;
     // Book.keys(bookObject).forEach(key => this[key]= bookObject[key]);
   }
 
   Book.prototype.toHtml = function() {
     let template = Handlebars.compile($('#book-list-template').text());
-    return app.render('.container', this);
+    return app.render('book-list-template', this);
     
   }
 
@@ -40,6 +40,12 @@ var app = app || {};
       })
       .catch(errorCallback);
 
+  };
+
+  Book.fetchOne = (ctx) => {
+    console.log(ctx);
+    $('.book-items').hide();
+    $(`.book-items[data-bookid="${ctx.params.book_id}"]`).show();
   };
 
   // Book.fetchAll = callback => {
